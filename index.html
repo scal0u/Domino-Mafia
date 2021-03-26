@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Domino Mafia</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<main id="gameFrame" class="firstGame" onclick="myShootingEffects()">
+
+
+		<div id="level1" class="level ">
+	
+			<div class=" wall backWall">
+
+				<div class="panel" style="left: 5%;"></div>
+				<div class="panel" style="left: 30%;"></div>
+				<div class="panel" style="left: 55%;"></div>
+				<div class="panel" style="left: 80%;"></div>
+				<p>Level 1</p>
+			</div>
+			
+			<div class="enemy" id="enemy1"></div>
+			<div class="enemy" id="enemy2"></div>
+			<div class="enemy" id="enemy3"></div>
+			<div class="enemy" id="enemy4" style="left: 430px;"></div>
+			<div class="enemy" id="enemy5" style="left: 500px;"></div>
+			<div class="enemy" id="enemy6" style="left: 640px;"></div>
+
+			<div class=" wall creamWall" id="wall1"></div>
+			<div class=" wall creamWall" id="wall2"></div>
+
+		</div>
+
+
+		<div id="level2" class="level ">
+
+			<div class=" wall backWall">
+				
+				<div class="panel" style="left: 30%;"></div>
+				<div class="panel" style="left: 55%;"></div>
+
+			</div>
+			<div class="wall creamWall" id="podium"></div>
+			<div class="enemy" id="enemy7"></div>
+			<div class="enemy" id="enemy8"></div>
+			<div class="enemy" id="enemy9"></div>
+			<div class=" wall" id="wall5">
+				<p>Level 2</p>
+			</div>
+			<div class=" wall" id="wall3">
+				<div class="panel" style="left: 4em; width: 10em; transform: scale(1.2);"></div>
+			</div>
+			<div class=" wall darkBlueWall" id="wall4">
+				<div class="panel" style="left: 4em; width: 3em; transform: scale(1.2);"></div>
+				<div class="panel" style="left: 10em; width: 3em; transform: scale(1.2);"></div>
+			</div>
+			<div class="enemy" id="enemy10"></div>
+			<div class="enemy" id="enemy11"></div>
+			
+		</div>
+
+
+		<div id="level3" class="level ">
+
+			<div class="roadContainer">
+				<div class=" road">
+					<div class="inner" style="background-position-y: 400%"></div>
+				</div>
+			</div>
+			
+			<div class="truck" id="truck">
+
+				<div class="enemy" id="enemy13"></div>
+				<div class="enemy" id="enemy14"></div>
+				<div class="enemy" id="enemy16"></div>
+				<div class="wall truckBody"></div>
+				<div class="enemy" id="enemy12"></div>
+				<div class="enemy" id="enemy15"></div>
+
+				<div class="wheel left" onclick="shootWheel('left')"></div>
+				<div class="wheel right" onclick="shootWheel('right')"></div>
+				
+				<div class="wall truckBoot">
+					<span>Level 3</span>
+				</div>
+			</div>
+
+			<div class=" wall darkBlueWall" id="garageDoor">
+				
+				<div class="panel" style="left: 5%;"></div>
+				<div class="panel" style="left: 30%;"></div>
+				<div class="panel" style="left: 55%;"></div>
+				<div class="panel" style="left: 80%;"></div>
+
+			</div>			
+
+		</div>
+
+
+		<div id="level4" class="level ">
+
+			<p>Level 4</p>
+
+			<div id="chopper">
+				<div class="wall helice" id="smallerHelice" onclick="shootChopper(7)"></div>
+				<div class="wall helice" id="mainHelice" onclick="shootChopper(7)"></div>
+				<div class="wall" id="rotorBase" onclick="shootChopper(15)"></div>
+				<div class="wall" id="chopperBody" onclick="shootChopper(8)"></div>
+				<div class="enemy" id="heliCockpitEnemyLeft"></div>
+				<div class="enemy" id="heliCockpitEnemyMiddle"></div>
+				<div class="enemy" id="heliCockpitEnemyRight"></div>
+				<div class="wall" id="chopperFront" onclick="shootChopper(5)"></div>
+				<div class="wall ski" id="ski1" onclick="shootChopper(2)"></div>
+				<div class="wall ski" id="ski2" onclick="shootChopper(2)"></div>
+
+			</div>
+
+		</div>
+
+
+		<div id="level5" class="level current">
+			
+			<div class="roadContainer">
+				<div class=" road">
+					<div class="inner"></div>
+				</div>
+			</div>
+
+			<div class="carLane" id="backLane"></div>
+
+
+			<div class="enemyVehicle" id="enemyVehicle2">
+				<div class="car">
+					<div class="windows">
+						<div class="enemy" id="enemy51" style="left: 20%;"></div>
+						<div class="enemy" id="enemy52" style="left: 40%;"></div>
+						<div class="enemy" id="enemy53" style="left: 60%;"></div>
+						<div class="glass wall"></div>
+					</div>
+					<div class="car5wheel back"></div>
+					<div class="car5wheel front"></div>
+				</div>
+			</div>
+
+
+			<div class="carLane" id="middleLane"></div>
+
+			<div class="enemyVehicle" id="enemyVehicle1">
+				<div class="car">
+					<div class="windows">
+						<div class="enemy" id="enemy54" style="left: 40%;"></div>
+						<div class="enemy" id="enemy55" style="left: 20%;"></div>
+						<div class="enemy" id="enemy56" style="left: 60%;"></div>
+						<div class="glass wall"></div>
+					</div>
+					<div class="car5wheel back"></div>
+					<div class="car5wheel front"></div>
+				</div>
+			</div>
+
+			<div class="carLane" id="frontLane"></div>
+
+		</div>
+
+
+		<div id="healthBar"></div>
+
+		<button onclick="newGame()" id="newGame" style="display: auto;">
+
+			<span class="messageWon">
+				<span class="emoji">👏</span> Oh yes!
+			</span>
+			<span class="messageDead">
+				<span class="emoji">😵</span> Oh no…
+			</span>
+			<span class="messageWelcome">
+				<span class="emoji">🤖</span> Welcome
+			</span>
+			
+			<p>👉 New game</p>
+
+		</button> 
+
+	</main>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="script.js"></script>
+
+</body>
+</html>

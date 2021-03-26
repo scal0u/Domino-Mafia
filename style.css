@@ -1,0 +1,1249 @@
+/* FUNCTIONAL CSS */
+
+* {
+	box-sizing: border-box;
+}
+
+::selection {
+	background: transparent;
+}
+
+
+#gameFrame {
+	height: 600px;
+	width: 800px;
+	margin: auto;
+	overflow: hidden;
+	position: relative;
+	background-color: #111;
+}
+
+#gameFrame.enemyShooting {
+	background-color: brown;
+}		
+
+#gameFrame.playerShooting .level:not(#level5) {
+	filter: brightness(2);
+}
+
+#level4.explosion {
+	background: coral !important;
+	filter: contrast(2) saturate(1);
+}
+
+#healthBar {
+	background-color: coral;
+	height: 20px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+
+
+#newGame {
+	background-color: rgba(0, 0, 0, .5);
+	position: absolute;
+	display: block;
+	border: none;
+	padding: 1em;
+	box-shadow: none; 
+	width: 100%;
+	height: 100%;
+	display: none;
+	z-index: 2;
+}
+
+#newGame span {
+	display: none;
+}
+
+#gameFrame.playerWon .messageWon,
+#gameFrame.playerDead .messageDead,
+#gameFrame.firstGame .messageWelcome,
+.firstGame #newGame,
+.playerDead #newGame,
+.playerWon #newGame {
+	display: block;
+}
+
+.playerWon #newGame {
+	background-color: #4CAF50;
+}
+.playerDead #newGame {
+	background-color: coral;
+}
+
+
+.wall {
+	position: absolute;
+	background-color: #334E4B;
+	overflow: hidden;
+}
+
+.level .wall .panel {
+	top: 10%;
+	position: absolute;
+	height: 50%;
+	border: .5em solid transparent;
+	border-top-color: rgba(0, 0, 0, .25);
+	border-right-color: rgba(0, 0, 0, .35);
+	border-bottom-color: rgba(255, 255, 255, .2);
+	border-left-color: rgba(255, 255, 255, .1);
+}
+
+#garageDoor .panel,
+.backWall .panel {
+	width: 20%;
+}
+
+#level2 .wall, #garageDoor {
+	box-shadow: inset 0 -5em 1em rgba(0, 0, 0, .7), 0 -2em 1em rgba(0, 0, 0, .5);
+	/*filter: blur(2px);*/
+}
+
+#level2 .wall:not(.backWall) .panel {
+	border-width: 1em;
+}
+
+
+.creamWall {
+	background-color: rgb(125, 65, 38);
+	box-shadow: inset 0 4em 4em -2em #111, inset 0 -3em 1em rgba(0, 0, 0, .7), 0 -2em 1em rgba(0, 0, 0, .5);
+}
+
+
+#wall1 {
+	height: 20em;
+	width: 12em;
+	bottom: 0;
+	left: 0;
+	border-top-right-radius: 2em;
+}
+
+#wall2 {
+	right: 0;
+	width: 40%;
+	height: 15%;
+	bottom: 0;
+	border-top-left-radius: 2em;	
+}
+
+
+.darkBlueWall {
+	background-color: rgb(10, 27, 42);
+}
+
+#wall3 {
+	height: 100%;
+	width: 40%;
+	bottom: 0;
+	left: -10%;
+}
+
+#wall4 {
+	height: 100%;
+	width: 30%;
+	bottom: 0;
+	right: 0;
+}
+
+.wall#wall5 {
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	border-bottom: 1em solid rgb(87, 9, 26);
+	box-shadow: 0 2em 1em black;
+	background-color: brown;
+	transition: bottom 3s;	
+}
+
+.current #wall5 {
+	bottom: 70%;	
+}
+
+#wall5 p {
+	font-weight: lighter;
+	position: absolute;
+	bottom: 0;
+	color: rgb(10, 27, 42);
+	text-align: center;
+	width: 100%;
+	font-size: 3.6em;
+	margin-bottom: .1em;
+	text-shadow: 0 -.05em 0em rgba(0, 0, 0, .5), 0 .05em 0em rgba(255, 255, 255, 0.31);
+}
+
+#enemy7 {
+	left: 15%;
+	bottom: -5%;
+}
+#enemy7.showing {
+	left: 35%;
+}
+#enemy8 {
+	right: 15%;
+	bottom: -5%;
+}
+#enemy8.showing {
+	right: 35%;
+}
+
+#enemy5.showing, #enemy6.showing {
+	bottom: 5%;
+}
+
+.enemy {
+	background-color: #334E4B;
+	position: absolute;
+	height: 19em;
+	width: 7em;
+	bottom: -100%;
+	transition: all .5s;
+	border-top: 4em solid  #142221;
+	border-bottom: 8em solid #1c3331;
+	border-radius: 6em;
+	font-size: 12px;
+	box-shadow: 0 -1.5em 1em rgba(0, 0, 0, .5), inset 0 32px 15px rgba(0, 0, 0, .3);	
+}
+
+.enemy.showing {
+	bottom: -10%;
+}
+
+.enemy.shooting {
+	background-color: #2D1810;
+}
+
+.enemy.dead {
+	transform: rotate(-90deg) !important;
+	transform-origin: bottom left;
+	bottom: -13%;
+	background-color: white;
+	margin-left: 20%;
+}
+
+
+#enemy1 {
+	bottom: 10%;
+	left: 2%;
+}
+
+#enemy2 {
+	left: 2%;
+	bottom: -3%;
+	transform: rotate(14deg);
+}
+
+#enemy1.showing {
+	bottom: 40%;
+}
+
+#enemy1.dead {
+	bottom: -15%;
+	left: 12%;
+	transform: rotate(90deg) !important;
+	transform-origin: initial;	
+}
+
+#enemy2.showing {
+	left: 27%;
+}
+
+#enemy2.dead {
+	left: 29%;
+	bottom: -9%;
+}
+
+#enemy3 {
+	transform: rotate(180deg);
+	left: 330px;
+	top: -50%;
+	bottom: auto;
+}
+
+#enemy3.showing {
+	top: -6%;
+}
+
+#enemy3.dead {
+	transform: rotate(90deg);
+	top: 70%;
+	left: 45%;
+}
+
+#enemy9 {
+	transform: rotate(180deg);
+	left: 45%;
+	top: -10%;
+	bottom: auto;
+}
+
+#enemy9.showing {
+	top: 22%;
+}
+
+#enemy9.dead {
+	transform: rotate(90deg);
+	top: 70%;
+	left: 45%;
+}
+
+body {
+	font-family: sans-serif;
+	background-color: black;
+}
+
+#gameFrame {
+	font-weight: bold;
+	user-select: none;
+	border-radius: 10px;
+	color: coral;
+	cursor: crosshair;
+}
+
+body, body * {
+	user-select: none;
+}
+
+#healthBar {
+	transition: width .3s;
+}
+
+#newGame {
+	color: white;
+	cursor: inherit;
+	font-size: 30px;
+	letter-spacing: -.05em;
+	font-weight: bold;	
+}
+
+#newGame p {
+	font-size: 1.5em;
+	margin-top: .5em;
+	color: gold;
+}
+
+#newGame .emoji {
+	display: block;
+	font-size: 2em;
+}
+
+/* enemy's face and hat */
+.enemy:before {
+	content: "°_°";
+	padding-top: .20em;
+	text-align: center;
+	width: 130%;
+	left: -15%;
+	border-top: 10px solid  #1a2d2c;
+	position: absolute;
+	font-size: 4em;
+}
+
+/* enemy weapon */
+.enemy:after {
+    content: "°";
+    color: #334e4b;
+    position: absolute;
+    bottom: -50px;
+    left: -32px;
+    font-size: 80px;
+    background-color: #0e211f;
+    border-radius: 16px;
+    border-left: 6px solid  #232323;
+    border-bottom: 12px solid  #121212;
+    box-sizing: border-box;
+    line-height: .5em;
+    width: 52px;
+    text-align: center;
+    padding-top: 17px;
+    transition: all .2s;
+}
+
+.enemy.shooting {
+	box-shadow: inset 50px 0 25px #ff7f5063;
+	color: rgba(255, 255, 255, .3);
+	border-color: #361C17;
+}
+
+.enemy.shooting:before {
+	border-color: #361C17;			
+}
+
+.enemy.shooting:after {
+    content: "*";
+    color: coral;
+    text-shadow: 0 0 10px coral;
+    background-color: #421e11;
+    border-color: #5C1A19;
+    transform: scale(2);
+    padding: 0;
+    font-size: 10em;
+	bottom: -30px;
+	height: 40px;    
+}
+
+.enemy.dead {
+	filter: blur(2px) brightness(.5);	
+}
+
+/* enemy's dead face */
+.enemy.dead:before {
+	content: "*_*";
+}
+
+.bulletImpact {
+	position: absolute;
+	width: 12px;
+	height: 12px;
+	border-radius: 30px;
+	background-color: black;
+	box-shadow: inset -1px 1px 1px rgba(255, 255, 255, .5);
+}
+
+.creamWall .bulletImpact {
+	background-color: rgb(75, 29, 29);
+	transform: scale(1.5);
+	filter: blur(1px);
+}
+
+
+.backWall {
+	background-color: transparent;
+	width: 100%;
+	height: 100%;
+	font-size: 1.5em;
+	filter: blur(1px);
+	background: radial-gradient(circle, rgb(4, 24, 57) 0%, rgba(0,0,0,1) 100%); 
+}
+
+.backWall .bulletImpact {
+	width: 9px;
+	height: 9px;
+}
+
+.level {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	transition: all 2.5s;
+}
+
+.level.current {
+	left: 0;
+}
+
+.level:not(.current):not(.past) {
+	left: 100%;
+}
+.level.past {
+	left: -100%;
+}
+
+#level1 .backWall p {
+	font-size: 5em;
+	text-align: right;
+	bottom: 0;
+	right: .8em;
+	position: absolute;
+	margin-bottom: .4em;
+	color: #000;
+	opacity: .3;
+}
+
+#level2 .enemy {
+	border-color: #E1333B;
+	color: #E1333B;
+}
+
+#level2 #podium {
+	height: 31%;
+	width: 20%;
+	bottom: 0;
+	left: 40%;
+	border-radius: 1em 1em 0 0;	
+}
+
+#enemy10, #enemy11 {
+	transform: scale(1.3);
+	filter: blur(1px);
+}
+
+#enemy10.showing, #enemy11.showing {
+	bottom: 0;
+}
+
+
+#enemy10 {
+	left: 8%;
+}
+
+#enemy11 {
+	right: 5%;
+	position: absolute;
+}
+
+
+#level3 {
+	overflow: hidden;
+	background: linear-gradient(#3F124F, #554a5e 63.03%);
+}
+
+#garageDoor {
+	width: 100%;
+	height: 100%;
+	top: 0%;
+	transition: top 4s;
+}
+
+#garageDoor.open {
+	top: -100%;
+}
+
+#level3 .enemy {
+	border-radius: 2em;
+	color: tan;
+	border-color: rgba(111, 129, 104, 0.64);
+	background-color: #4A6322;
+	box-shadow: none;	
+}
+
+
+.roadContainer {
+	height: 50%;
+	width: 100%;
+	position: absolute;
+	bottom: -100%;
+	box-shadow: 0 -4em 5em brown;
+	transition: bottom 4s;
+}
+
+
+.current .roadContainer {
+	bottom: 0%;
+}
+
+.road {
+	width: 170%;
+	left: -35%;
+	height: 200%;
+	bottom: 0;
+	position: absolute;
+	transform: perspective(5em) rotateX(80deg);
+}
+
+.road .inner {
+	background-image: url(road_road_0016_01_preview.jpg);
+	background-size: 100% auto;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	animation-timing-function: linear;
+	/*transition: background-position 1s linear;*/
+}
+
+
+#enemy12 {
+	left: 4em;
+}
+#enemy15 {
+	left: 14em;
+}
+
+#enemy12, #enemy15 {
+	bottom: 0em;
+	height: 13em;
+	border-bottom-width: 2em;	
+}
+
+#enemy12.showing, #enemy15.showing {
+	bottom: 12em;
+}
+
+#enemy15.dead,
+#enemy12.dead {
+	left: 30%;
+}
+
+
+#enemy13, #enemy14, #enemy16 {
+	bottom: 4em;
+	left: 30%;
+}
+
+#enemy13.showing {
+	left: 110%;
+	transform: rotate(30deg);	
+}
+#enemy16.showing {
+	left: -25%;
+	transform: rotate(-30deg);	
+}
+
+#enemy16.dead {
+	transition: all 1.5s, left .5s, bottom 1s, opacity 2s;
+	left: -50%;
+	bottom: -100%;
+	transform: rotate(180deg) scale(2) !important;
+	opacity: 0;
+}
+
+#enemy13.dead {
+	left: 400%;
+	opacity: 0;
+	transform: rotate(180deg);	
+}
+
+
+#enemy14.showing {
+	bottom: 19em;
+	/*transform: rotate(30deg);	*/
+}
+
+#enemy14.dead {
+	left: 15em;
+}
+
+
+@keyframes roadMovingThree {
+  from {
+  	background-position-y: 300%;
+  }
+  to {
+  	background-position-y: 0;
+  }
+}
+
+
+#level3.current .road .inner {
+	animation-name: roadMovingThree;
+  	animation-iteration-count: infinite;	
+  	animation-duration: 10s;
+}
+
+.truck {
+	transform: perspective(0);
+	position: absolute;
+	left: -50%;
+	bottom: 10em;
+	width: 35%;
+	height: 50%;
+	transition: all 1.5s;
+	filter: sepia(.5);
+}
+
+.truck .wall {
+	background: #222;
+	box-shadow: none;
+}
+
+.wall.truckBody {
+	box-shadow: inset 0 -12em 1em black, inset 0 1em 0em #111;
+	height: 100%;
+	transform: perspective();
+	width: 100%;
+	border-radius: 1em 1em 0 0;
+	overflow: hidden;
+	border-top: 2em dashed cadetblue;
+	border-right: 1em double #333;
+	border-left: 1em double #333;
+}
+
+.truckBoot {
+	width: 130%;
+	left: -15%;
+	height: 65%;
+	bottom: -10%;
+	border-radius: 1em;
+	border-bottom: 1em solid black;
+	border-right: 1.5em solid red;
+	border-left: 1.5em solid red;
+	border-top: 1em solid #333;
+	box-shadow: 0 2em .5em rgba(0, 0, 0, .5), 0 1.5em .5em -0.5em rgba(0, 0, 0, .5) !important;
+	color: #111;
+	text-align: center;
+	font-size: 2em;
+}
+
+.truckBoot span {
+	display: block;
+	padding-top: .8em;
+	font-size: 1.5em;
+	letter-spacing: -.05em;
+	text-shadow: 0 1px 0 #444, 0 -1px 0 black;
+}
+
+#level3 .wheel {
+	background: #222;
+	height: 20%;
+	bottom: -20%;
+	width: 20%;
+	position: absolute;
+	border-radius: 1em;
+	box-shadow: inset 0em -1em 0 #111;	
+}
+
+#level3 .wheel.left {
+	left: -8%;
+}
+#level3 .wheel.right {
+	right: -8%;
+}
+
+#level3 .truck.wheelShot {
+	transition: all .5s, margin-bottom .2s;
+	bottom: 7em;
+}
+
+#level3 .truck.wheelShot.up {
+	margin-bottom: 2em;
+}
+
+#level3 .truck.wheelShot.right {
+	transform: scale(.6) rotate(8deg) !important;
+}
+#level3 .truck.wheelShot.left {
+	transform: scale(.6) rotate(-8deg) !important;
+}
+
+#level3 .truck.wheelShot.left .wheel.left,
+#level3 .truck.wheelShot.right .wheel.right {
+	height: 200%;
+	top: 115%;
+	transform: perspective(2em) rotateX(20deg);
+	transform-origin: top;
+	background: transparent;
+	box-shadow: inset 0 4em 1em rgba(0, 0, 0, .5);
+	filter: blur(2px);
+	border-radius: 2em;
+}
+#level3 .truck.wheelShot.right .wheel.left {
+	transform: rotate(-12deg);
+}
+#level3 .truck.wheelShot.left .wheel.right {
+	transform: rotate(12deg);
+}
+
+#level3 .truck.broken {
+	transition: all .8s, left 2s;
+	left: 120% !important;
+	transform: scale(.3) rotate(170deg) !important;
+	box-shadow: 0 1em 1em brown;
+}
+
+#level3.past {
+	left: 0;
+	top: 100%;
+}
+
+
+/* LEVEL 4 */
+
+.level#level4:not(.current) {
+	top: -100%;	
+	left: 0;
+}
+
+
+#level4 {
+	overflow: hidden;
+	background: linear-gradient( #0C084F, #3F124F );
+}
+
+#level4 p {
+	width: 100%;
+	font-size: 10em;
+	letter-spacing: -.05em;
+	transition: all 6s;
+}
+
+#level4.current p,
+#level4.past p {
+	margin-top: 5em;
+	opacity: 0;
+}
+
+#chopper {
+	width: 40%;
+	height: 45%;
+	position: absolute;
+	left: 30%;
+	top: 20%;
+	transform: scale(.7) rotate(-6deg);
+	transition: all 1.8s;
+}
+
+.level#level4:not(.current) #chopper {
+	top: -40%;
+}
+
+#level4 > #chopper.crashing {
+	transform: rotate(200deg) scale(.2);
+	top: 150%;
+	opacity: 0;
+}
+
+#chopper .ski {
+	background: #111;
+	width: 52%;
+	height: 20%;
+	bottom: -0%;
+	border-radius: 100%;
+	box-shadow: inset .5em 0 .2em purple;
+}
+
+#chopper #chopperBody {
+	width: 100%;
+	height: 80%;
+	bottom: 30%;
+	border-radius: 60% 60% 0 0;						
+	box-shadow: inset .5em 0 .2em purple, 0 -1em 7em blue;
+}
+
+
+#rotorBase {
+	width: 20%; height: 40%; bottom: 90%; left: 40%; border-radius: 50% 50% 60% 60%;
+}
+
+#ski1 {
+	left: -30%;
+	transform: rotate(70deg);
+}
+#ski2 {
+	right: -30%;
+	transform: rotate(110deg);
+}
+
+
+#chopper .wall {
+	background-color: black;
+}
+
+#chopper .wall:not(.helice):not(.ski) {
+	box-shadow: inset .5em -.5em .3em purple;
+}
+
+#chopperFront {
+	width: 100%;
+	height: 70%;
+	bottom: 0;
+	border-radius: 100% 100% 60% 60%;
+	background: black;	
+}
+
+#mainHelice {
+	width: 320%;
+	height: 120%;
+	top: -90%;
+	left: -110%;						
+}
+
+#smallerHelice {
+	opacity: .5;
+	width: 130%;
+	height: 50%;
+	top: -10%;
+	left: -10%;						
+}
+
+
+.helice {
+	border-radius: 50% 50% 60% 60%;
+	background-color: transparent !important;
+	background: linear-gradient(60deg, transparent 40%, black 45%, rgba(0, 0, 0, .2) 55%);
+	border: solid white;
+	border-width: 0 5px 0 0;
+	transform: rotate(-1deg);
+	transition: all .2s;
+}
+.helice.alter {
+	background: linear-gradient(-20deg, transparent 40%, black 45%, rgba(0, 0, 0, .2) 55%);
+	border-width: 0 0 5px 0;
+	transform: rotate(1deg);
+}
+
+#level4 .enemy {
+	border-bottom-width: 2em;
+	background-color: #111;
+	color: purple;
+	border-color: purple;
+	box-shadow: none !important;
+	border-radius: 3em 3em 1em 1em;				
+}
+
+#chopper .enemy {
+	height: 13em;
+}
+
+#heliCockpitEnemyLeft {
+	left: 26%;
+	bottom: 10.5%;
+}
+#heliCockpitEnemyLeft.showing {
+	bottom: 58%;
+	left: 5%;
+	transform: rotate(-20deg);
+}
+#heliCockpitEnemyLeft.dead {
+	transform: rotate(-180deg) !important;
+	bottom: -200%;
+	left: -80%;
+	opacity: 0;
+	transition: all 2s;			
+}					
+
+#heliCockpitEnemyMiddle {
+	left: 26%;
+	bottom: 10.5%;
+}
+#heliCockpitEnemyMiddle.showing {
+	bottom: 68%;
+	left: 40%;
+}			
+#heliCockpitEnemyMiddle.dead {
+	bottom: 15.5%;
+}
+
+#heliCockpitEnemyRight {
+	bottom: 3%;
+	right: 12%;
+	transform: rotate(20deg);
+}
+#heliCockpitEnemyRight.showing {
+	bottom: 57%;
+	right: 0%;
+}
+#heliCockpitEnemyRight.dead {
+	transform: rotate(180deg) !important;
+	bottom: -200%;
+	right: -50%;
+	opacity: 0;
+	transition: all 2s;			
+}
+
+
+/* LEVEL 5 */
+
+#level5 {
+	overflow: hidden;
+	background: linear-gradient( #3F124F, #111 );
+}
+
+.level#level5:not(.current) {
+	top: 100%;	
+	left: 0;
+}
+
+#level5 .roadContainer {
+	bottom: -20%;
+	box-shadow: 0 -4em 4em #0f0a0a;
+}
+
+#level5 .road {
+	transform: perspective(26em) rotateX(71deg);
+}
+
+@keyframes roadMovingFive {
+  from {background-position-x: 0;}
+  to {background-position-x: -800%;}
+}
+
+#level5 .road .inner {
+	background-image: url(road_lateral.jpg);
+	background-size: auto 50%;
+	box-shadow: inset 0 17em 12em #160E17;
+}
+
+#level5.current .road .inner {
+	animation-name: roadMovingFive;
+  	animation-iteration-count: infinite;	
+  	animation-duration: 7s;	
+}
+
+.carLane {
+	position: absolute;
+	display: block;
+	width: 500%;
+	height: 0%;
+	left: -110%;
+	transition: left 8s;
+}
+
+.carLane.alter {
+	left: -200%;
+}
+
+#level5 .car {
+	height: 5em;
+	width: 10em;
+	border-top: .1em solid coral;
+	transition: all 1.5s;
+	bottom: 0;
+	position: relative;
+	display: inline-block;
+	vertical-align: bottom;
+	box-shadow: 0 .5em .5em black, inset 2em 0 1em -1em coral;
+}
+
+.car.capsule {
+	border-radius: 40% 67% 1em 1em;	
+}
+
+.car.van {
+	border-radius: 2em 2em 1em 1em;	
+}
+
+.car.jazz {
+	border-radius: 1em 70% 1em 1em;	
+}
+
+.car.cube {
+	border-radius: .5em .5em .5em .5em;	
+}
+
+.car.maroon {
+	background-color: rgb(18, 3, 11);
+}
+.car.blue {
+	background: linear-gradient(#1E1A2C, #0A090C);
+}
+.car.purple {
+	background-color: #120816;
+}
+.car.black {
+	background-color: #121212;
+}
+.car.tan {
+	background-color: #28231C;
+}
+
+#backLane {
+	transform: scale(.6);
+	bottom: 50%;
+	opacity: .3;
+	filter: blur(2px); 	
+  	animation-duration: 7s;
+}
+
+
+#frontLane {
+	bottom: 30%;
+	transform: scale(2.0);
+  	animation-duration: 9s;
+  	animation-delay: -2s;
+  	filter: blur(3px);
+}
+
+#middleLane {
+  	animation-duration: 5s;
+	bottom: 42%;
+	filter: blur(2px);
+}
+
+#backLane .car {
+  	animation-duration: 6s;	
+}
+#middleLane .car {
+  	animation-duration: 8.5s;	
+}
+#frontLane .car {
+  	animation-duration: 7.5s;	
+}
+
+
+#level5 .enemy {
+	transform: scale(.4) !important;
+	margin-bottom: -32.5%;
+	bottom: -100%;
+	/*box-shadow: none;*/
+	background: #38AC90;
+	color: #111;
+	border-top-color: #0D6655;
+}
+
+#level5 .enemy.showing {
+	margin-bottom: -9.5%;
+}
+
+#level5 .enemy.dead {
+	margin-bottom: -30%;
+	opacity: 0;
+}
+
+#level5 #enemyVehicle2 .enemy {
+	bottom: -55% !important;
+}
+
+
+#level5 .car:before {
+	content: " ";
+	bottom: 1em;
+	width: .5em;
+	height: 2em;
+	border-radius: 0 1em .5em 0;
+	position: absolute;
+	background-color: red;
+}
+#level5 .car:after {
+	content: " ";
+	right: 0;
+	bottom: 1em;
+	width: 1em;
+	height: 1em;
+	border-radius: 0 0 0 100%;
+	position: absolute;
+	background-color: #FEC993;
+}
+
+.car5wheel {
+	animation: wheel5turn .5s infinite linear;
+	position: absolute;
+	color: coral;
+	font-weight: normal;
+	background-color: black;
+	border: .8em solid #111;
+	width: 4em;
+	height: 4em;
+	border-radius: 100%;
+	bottom: -20%;
+}
+
+.car5wheel.back {
+	left: 10%;
+}
+
+.car5wheel.front {
+	right: 10%;
+}
+
+
+#level5 .enemyVehicle {
+	position: absolute;
+	transition: left 4s;
+}
+
+#level5 .enemyVehicle .car {
+	background-color: black;
+	height: 6em;
+	width: 30em;
+	overflow: visible;
+}
+
+#enemyVehicle1 {
+	bottom: 3em;
+	left: -110%;
+	filter: blur(1px);
+}
+
+#enemyVehicle2 {
+	bottom: 10.5em;
+	left: -100%;
+	filter: blur(2px);
+	transform: scale(.5);
+	height: 7em;
+}
+
+/*#level5 .enemyVehicle.goneLeft {
+	left: -120%;
+	transition: none;
+}
+#level5 .enemyVehicle.goneRight {
+	left: 120%;
+}*/
+
+
+#level5 #enemyVehicle1 .car {
+	border-radius: 40% 40% 10% 10%;
+}
+
+#level5 #enemyVehicle2 .car {
+	border-radius: 1em;
+}
+
+#level5 #enemyVehicle2 .car .car5wheel {
+	width: 5em;
+	height: 5em;
+}
+
+#level5 #enemyVehicle1 .car:before {
+	bottom: 30%;
+}
+#level5 #enemyVehicle1 .car:after {
+	bottom: 50%;
+	width: 10%;
+	border-radius: 0 1em 0 100%;
+	border-top: 2px solid white;
+}
+
+#level5 #enemyVehicle2 .car:before {
+	bottom: 40%;
+}
+
+#level5 #enemyVehicle2 .car:after {
+	bottom: 50%;
+	border-radius: 3px;
+	height: 40%;
+}
+
+
+#level5 .enemyVehicle > .car:before {
+	background-color: black;
+}
+#level5 .enemyVehicle > .car:after {
+	background-color: #0D6655;
+}
+
+#level5 .enemyVehicle .windows {
+	background-color: inherit;
+	overflow: hidden;
+	position: absolute;
+	box-shadow: inset 1.5em .5em 1em -1em;
+}
+
+#enemyVehicle1 .windows {
+	left: 20%;
+	bottom: 80%;
+	height: 75%;
+	width: 60%;
+	border-top-right-radius: 100% 220%;
+	border-top-left-radius: 120%;
+	border-bottom-right-radius: 1em;
+	border-bottom-left-radius: 30%;	
+}
+#enemyVehicle2 .windows {
+	left: 0%;
+	bottom: 90%;
+	height: 100%;
+	width: 80%;
+	border-top-left-radius: 1em;
+	border-top-right-radius: 10% 50%;
+}
+
+#level5 .enemyVehicle .car .glass {
+	width: 85%;
+	height: 90%;
+	left: 12%;
+	bottom: 0;
+	border-radius: inherit;
+	background-color: #0D6655;
+	box-shadow: inset 0 -2em 2em #111;
+	transition: all 1s;
+}
+
+#level5 .enemyVehicle.openWindow .glass {
+	bottom: -100%;
+}
+
+
+#level5 .carLane .car.car5shot {
+	position: relative;
+	transform: rotate(-590deg);
+	/*transform-origin: bottom-left;*/
+	left: -10% !important;
+	opacity: 0;
+	transition: all 2s;
+}
+
